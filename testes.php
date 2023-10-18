@@ -1,5 +1,6 @@
 <?php
 
+use Pablo\DesignPattern\CalculadoraDeDescontos;
 use Pablo\DesignPattern\CalculadoraDeImpostos;
 use Pablo\DesignPattern\Impostos\Icms;
 use Pablo\DesignPattern\Impostos\Iss;
@@ -7,9 +8,18 @@ use Pablo\DesignPattern\Orcamento;
 
 require 'vendor/autoload.php';
 
-$calculadora = new CalculadoraDeImpostos();
+// $calculadora = new CalculadoraDeImpostos();
+
+// $orcamento = new Orcamento();
+// $orcamento->valor = 100;
+
+// echo $calculadora->calcula($orcamento, new Iss());
+
+
+$calculadora = new CalculadoraDeDescontos();
 
 $orcamento = new Orcamento();
-$orcamento->valor = 100;
+$orcamento->valor = 600;
+$orcamento->quantidadeItems = 7;
 
-echo $calculadora->calcula($orcamento, new Iss());
+echo $calculadora->calculaDesconto($orcamento);
